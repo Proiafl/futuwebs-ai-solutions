@@ -18,12 +18,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">F</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">
-              Futu<span className="text-primary">webs</span>
-            </span>
+            <img
+              src="/logo.png"
+              alt="Futuwebs"
+              className="h-24 w-auto object-contain"
+              style={{ filter: 'drop-shadow(0 0 8px hsl(22 96% 48% / 0.6)) drop-shadow(0 0 20px hsl(22 96% 48% / 0.3))' }}
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -41,7 +41,7 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="glow-green-sm">
+            <Button className="glow-orange-sm">
               Contactar
             </Button>
           </div>
@@ -69,7 +69,7 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button className="mt-2 glow-green-sm">
+              <Button className="mt-2 glow-orange-sm">
                 Contactar
               </Button>
             </div>

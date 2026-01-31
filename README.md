@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+# Futuwebs AI Solutions
 
-## Project info
+Landing page profesional para **Futuwebs**, agencia de desarrollo web y soluciones con inteligencia artificial para PYMEs.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🌐 Demo
 
-## How can I edit this code?
+Visita la web en: [futuwebs.com](https://futuwebs.com)
 
-There are several ways of editing your application.
+## ✨ Características
 
-**Use Lovable**
+### Secciones de la Web
+- **Hero**: Presentación principal con CTA y estadísticas
+- **Servicios**: Desarrollo web, automatización e IA
+- **Soluciones IA para PYMEs**: 
+  - GymIApp - Gestión de gimnasios
+  - CarwashIApp - CRM para lavaderos
+  - ConsorcioIApp - Administración de consorcios
+- **Clientes**: Carrusel con clientes internacionales (Chile, USA, Argentina)
+- **Nosotros**: Información sobre la empresa
+- **CTA**: Llamada a la acción para contacto
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### Diseño
+- 🎨 Tema oscuro moderno con acentos en naranja (#f25c05)
+- 🌟 Efectos glow y glassmorphism
+- 📱 Diseño responsive (mobile-first)
+- 🎭 Animaciones y transiciones suaves
+- 🖼️ Carrusel de clientes con screenshots automáticos
+- 🏳️ Banderas de países para clientes internacionales
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Stack Tecnológico
 
-**Use your preferred IDE**
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Componentes UI**: shadcn/ui
+- **Carrusel**: Embla Carousel
+- **Iconos**: Lucide React
+- **Fuentes**: Google Fonts (Inter)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Instalación
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/futuwebs-ai-solutions.git
 
-Follow these steps:
+# Navegar al directorio
+cd futuwebs-ai-solutions
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Instalar dependencias
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Iniciar servidor de desarrollo
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 📦 Scripts Disponibles
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia servidor de desarrollo |
+| `npm run build` | Genera build de producción |
+| `npm run preview` | Preview del build de producción |
+| `npm run lint` | Ejecuta ESLint |
 
-**Use GitHub Codespaces**
+## 📁 Estructura del Proyecto
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/
+│   ├── ui/              # Componentes shadcn/ui
+│   ├── Navbar.tsx       # Navegación
+│   ├── Hero.tsx         # Sección principal
+│   ├── Services.tsx     # Servicios
+│   ├── AISolutions.tsx  # Soluciones IA para PYMEs
+│   ├── Clients.tsx      # Carrusel de clientes
+│   ├── About.tsx        # Nosotros
+│   ├── CTA.tsx          # Llamada a la acción
+│   └── Footer.tsx       # Pie de página
+├── pages/
+│   └── Index.tsx        # Página principal
+├── index.css            # Estilos globales
+└── main.tsx             # Entry point
+```
 
-## What technologies are used for this project?
+## 🎨 Colores del Tema
 
-This project is built with:
+| Variable | Color | Uso |
+|----------|-------|-----|
+| `--primary` | `#f25c05` | Color principal (naranja) |
+| `--background` | `#0f0f0f` | Fondo oscuro |
+| `--card` | `#1a1a1a` | Tarjetas y superficies |
+| `--foreground` | `#ffffff` | Texto principal |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 👥 Clientes Destacados
 
-## How can I deploy this project?
+| Cliente | País | Industria |
+|---------|------|-----------|
+| Redca Services | 🇺🇸 USA | Construcción |
+| SmartBoxes | 🇨🇱 Chile | Logística |
+| Latin Professional Tax | 🇺🇸 USA | Finanzas |
+| Style Soho | 🇨🇱 Chile | Belleza |
+| HerraVentas | 🇦🇷 Argentina | E-commerce |
+| ConstelaXIO | 🇦🇷 Argentina | Terapia |
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 📄 Licencia
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+© 2024 Futuwebs. Todos los derechos reservados.

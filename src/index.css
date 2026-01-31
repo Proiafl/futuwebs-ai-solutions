@@ -15,7 +15,7 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 142 71% 45%;
+    --primary: 22 96% 48%;
     --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 10%;
@@ -32,13 +32,13 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 142 71% 45%;
+    --ring: 22 96% 48%;
 
     --radius: 0.75rem;
 
     /* Custom Futuwebs tokens */
-    --green-glow: 142 71% 45%;
-    --green-dark: 142 50% 30%;
+    --orange-glow: 22 96% 48%;
+    --orange-dark: 22 96% 30%;
     --dark-surface: 0 0% 10%;
     --dark-elevated: 0 0% 12%;
   }
@@ -58,19 +58,23 @@
 
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-emerald-400 to-primary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-orange-500 to-primary bg-clip-text text-transparent;
   }
 
   .gradient-bg {
     @apply bg-gradient-to-br from-primary/20 via-background to-background;
   }
 
-  .glow-green {
-    box-shadow: 0 0 40px hsl(142 71% 45% / 0.3), 0 0 80px hsl(142 71% 45% / 0.1);
+  .glow-orange {
+    box-shadow: 0 0 40px hsl(22 96% 48% / 0.3), 0 0 80px hsl(22 96% 48% / 0.1);
   }
 
-  .glow-green-sm {
-    box-shadow: 0 0 20px hsl(142 71% 45% / 0.25);
+  .glow-orange-sm {
+    box-shadow: 0 0 20px hsl(22 96% 48% / 0.25);
+  }
+
+  .glow-orange-drop {
+    filter: drop-shadow(0 0 8px hsl(22 96% 48% / 0.6)) drop-shadow(0 0 20px hsl(22 96% 48% / 0.3));
   }
 
   .card-hover {

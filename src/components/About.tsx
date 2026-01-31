@@ -22,12 +22,12 @@ const About = () => {
                 <span className="text-primary">&lt;</span>Hola_Mundo!<span className="text-primary">&gt;</span>
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Futuwebs es una agencia emergente dedicada al diseño web y la 
-                automatización de procesos, utilizando inteligencia artificial 
+                Futuwebs es una agencia emergente dedicada al diseño web y la
+                automatización de procesos, utilizando inteligencia artificial
                 para ofrecer soluciones innovadoras a pequeñas y medianas empresas.
               </p>
               <p className="text-muted-foreground text-lg leading-relaxed mt-4">
-                Nuestro objetivo es hacer que la tecnología más avanzada sea 
+                Nuestro objetivo es hacer que la tecnología más avanzada sea
                 accesible para todos los negocios, sin importar su tamaño.
               </p>
             </div>
@@ -48,7 +48,7 @@ const About = () => {
               {/* Code-like decoration */}
               <div className="absolute inset-0 p-8 font-mono text-sm text-muted-foreground/50 overflow-hidden">
                 <pre className="animate-fade-in">
-{`const futuwebs = {
+                  {`const futuwebs = {
   mission: "Transformar PYMEs",
   tech: ["IA", "Web", "Automation"],
   values: {
@@ -67,13 +67,13 @@ const About = () => {
 futuwebs.transform(yourBusiness);`}
                 </pre>
               </div>
-              
+
               {/* Glow effect */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/30 rounded-full blur-3xl" />
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -bottom-4 -right-4 bg-card border border-border/50 rounded-xl px-6 py-4 shadow-xl glow-green-sm">
+            <div className="absolute -bottom-4 -right-4 bg-card border border-border/50 rounded-xl px-6 py-4 shadow-xl glow-orange-sm">
               <div className="text-2xl font-bold text-primary">5+</div>
               <div className="text-sm text-muted-foreground">Años de experiencia</div>
             </div>
