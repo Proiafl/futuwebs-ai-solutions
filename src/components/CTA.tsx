@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   return (
@@ -22,10 +23,12 @@ const CTA = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="group glow-orange text-lg px-8 py-6">
-              Solicitar consulta gratuita
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/cotizar">
+              <Button size="lg" className="group glow-orange text-lg px-8 py-6">
+                Solicitar consulta gratuita
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
 
           {/* Contact Info */}
@@ -39,11 +42,11 @@ const CTA = () => {
             </a>
             <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
             <a
-              href="tel:+34600000000"
+              href="tel:1150489879"
               className="flex items-center gap-2 hover:text-primary transition-colors"
             >
               <Phone className="w-5 h-5" />
-              +34 600 000 000
+              1150489879
             </a>
           </div>
         </div>

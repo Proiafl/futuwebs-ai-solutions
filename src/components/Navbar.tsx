@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,9 +42,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button className="glow-orange-sm">
-              Contactar
-            </Button>
+            <Link to="/cotizar">
+              <Button className="glow-orange-sm">
+                Contactar
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -69,9 +72,11 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button className="mt-2 glow-orange-sm">
-                Contactar
-              </Button>
+              <Link to="/cotizar">
+                <Button className="mt-2 glow-orange-sm w-full">
+                  Contactar
+                </Button>
+              </Link>
             </div>
           </div>
         )}

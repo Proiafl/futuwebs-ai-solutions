@@ -11,7 +11,7 @@ const solutions = [
         features: ["Control de membresías", "Asistencia automática", "Rutinas personalizadas con IA", "Reportes inteligentes"],
         color: "from-green-500 to-emerald-500",
         accentColor: "green",
-        status: "Disponible",
+        status: "Próximamente",
     },
     {
         id: "carwashiapp",
@@ -22,7 +22,7 @@ const solutions = [
         features: ["Gestión de turnos", "Historial de vehículos", "Facturación automática", "Predicción de demanda"],
         color: "from-blue-500 to-cyan-500",
         accentColor: "blue",
-        status: "Disponible",
+        status: "Próximamente",
     },
     {
         id: "consorcioiapp",
@@ -33,7 +33,7 @@ const solutions = [
         features: ["Gestión de pagos", "Recibos digitales", "Reserva de amenities", "Comunicados automáticos"],
         color: "from-orange-500 to-red-500",
         accentColor: "orange",
-        status: "Disponible",
+        status: "Próximamente",
     },
 ];
 
@@ -116,29 +116,9 @@ const AISolutions = () => {
                                         ))}
                                     </ul>
                                 </div>
-
-                                {/* CTA Button */}
-                                <Button
-                                    variant="outline"
-                                    className="w-full group/btn border-border/50 hover:border-primary hover:bg-primary/10"
-                                >
-                                    <span>Conocer más</span>
-                                    <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                                </Button>
                             </div>
                         </div>
                     ))}
-                </div>
-
-                {/* Bottom CTA */}
-                <div className="text-center mt-16">
-                    <p className="text-muted-foreground mb-6">
-                        ¿Necesitas una solución personalizada para tu industria?
-                    </p>
-                    <Button size="lg" className="glow-orange-sm">
-                        <Bot className="w-5 h-5 mr-2" />
-                        Solicitar Demo Personalizada
-                    </Button>
                 </div>
             </div>
         </section>

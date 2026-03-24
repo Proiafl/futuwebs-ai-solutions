@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -42,10 +43,12 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in [animation-delay:300ms] opacity-0">
-            <Button size="lg" className="group glow-orange-sm text-lg px-8 py-6">
-              Comenzar ahora
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/cotizar">
+              <Button size="lg" className="group glow-orange-sm text-lg px-8 py-6">
+                Comenzar ahora
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-muted-foreground/30 hover:border-primary hover:text-primary">
               Ver servicios
             </Button>
