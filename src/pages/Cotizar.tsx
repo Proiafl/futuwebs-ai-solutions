@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 
 type FormState = {
   name: string;
+  role: string;
   company: string;
+  companySize: string;
   email: string;
   phone: string;
   interest: string;
@@ -20,16 +22,33 @@ const questions = [
     placeholder: "Ej: Juan Pérez",
   },
   {
+    id: "role",
+    question: "¿Cuál es tu cargo o rol en la empresa?",
+    type: "text",
+    placeholder: "Ej: CEO, Director de Marketing, Founder...",
+  },
+  {
     id: "company",
     question: "¿Cuál es el nombre de tu empresa o proyecto?",
     type: "text",
     placeholder: "Ej: Mi Empresa S.A.",
   },
   {
+    id: "companySize",
+    question: "¿De qué tamaño es tu empresa?",
+    type: "options",
+    options: [
+      "1-10 empleados (Startup / Micro)",
+      "11-50 empleados (Pequeña)",
+      "51-200 empleados (Mediana)",
+      "+200 empleados (Corporativa)"
+    ]
+  },
+  {
     id: "email",
-    question: `¡Un gusto conocerte! ¿A qué correo electrónico deberíamos escribirte?`,
+    question: `¡Un gusto conocerte! ¿A qué correo electrónico de contacto deberíamos escribirte?`,
     type: "email",
-    placeholder: "tucorreo@ejemplo.com",
+    placeholder: "tucorreo@empresa.com",
   },
   {
     id: "phone",
@@ -61,7 +80,9 @@ const Cotizar = () => {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<FormState>({
     name: "",
+    role: "",
     company: "",
+    companySize: "",
     email: "",
     phone: "",
     interest: "",
@@ -104,7 +125,15 @@ const Cotizar = () => {
 
   const isCurrentStepValid = () => {
     const currentKey = questions[step].id as keyof FormState;
-    return formData[currentKey].trim() !== "";
+    const value = String(formData[currentKey] || "").trim();
+    if (value === "") return false;
+
+    if (currentKey === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      return emailRegex.test(value);
+    }
+    
+    return true;
   };
 
   if (isCompleted) {

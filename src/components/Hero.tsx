@@ -49,8 +49,8 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-muted-foreground/30 hover:border-primary hover:text-primary">
-              Ver servicios
+            <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6 border-muted-foreground/30 hover:border-primary hover:text-primary">
+              <a href="#servicios">Ver servicios</a>
             </Button>
           </div>
 

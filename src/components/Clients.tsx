@@ -5,12 +5,22 @@ import Autoplay from "embla-carousel-autoplay";
 
 const clients = [
     {
+        name: "Edition Luxury Realty",
+        description: "Bienes Raíces de Lujo",
+        url: "https://editionluxuryrealty.com",
+        industry: "Inmobiliaria",
+        country: "USA",
+        flagUrl: "https://flagcdn.com/w40/us.png",
+        screenshotUrl: "/editionluxuryrealty.png"
+    },
+    {
         name: "Redca Services",
         description: "General Contractor",
         url: "https://redcaservices.com",
         industry: "Construcción",
         country: "USA",
         flagUrl: "https://flagcdn.com/w40/us.png",
+        screenshotUrl: "/redcaservices.png"
     },
     {
         name: "SmartBoxes",
@@ -19,6 +29,7 @@ const clients = [
         industry: "Logística",
         country: "Chile",
         flagUrl: "https://flagcdn.com/w40/cl.png",
+        screenshotUrl: "/smartboxes.png"
     },
     {
         name: "Latin Professional Tax",
@@ -27,6 +38,7 @@ const clients = [
         industry: "Finanzas",
         country: "USA",
         flagUrl: "https://flagcdn.com/w40/us.png",
+        screenshotUrl: "/latinprofessionaltax.png"
     },
     {
         name: "Style Soho",
@@ -35,6 +47,7 @@ const clients = [
         industry: "Belleza",
         country: "Chile",
         flagUrl: "https://flagcdn.com/w40/cl.png",
+        screenshotUrl: "/stylesoho.png"
     },
     {
         name: "HerraVentas",
@@ -43,6 +56,7 @@ const clients = [
         industry: "E-commerce",
         country: "Argentina",
         flagUrl: "https://flagcdn.com/w40/ar.png",
+        screenshotUrl: "/herraventas.png"
     },
     {
         name: "ConstelaXIO",
@@ -51,6 +65,7 @@ const clients = [
         industry: "Terapia",
         country: "Argentina",
         flagUrl: "https://flagcdn.com/w40/ar.png",
+        screenshotUrl: "/constelaxio.png"
     },
 ];
 
@@ -153,7 +168,7 @@ const Clients = () => {
                                         <div
                                             className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500 rounded-2xl"
                                             style={{
-                                                backgroundImage: `url(${getScreenshotUrl(client.url)})`,
+                                                backgroundImage: `url(${client.screenshotUrl || getScreenshotUrl(client.url)})`,
                                                 backgroundSize: 'cover',
                                                 backgroundPosition: 'top center',
                                             }}
@@ -172,22 +187,7 @@ const Clients = () => {
                                             {client.industry}
                                         </span>
 
-                                        {/* Logo Placeholder - Stylized Text */}
-                                        <div className="mb-4 relative">
-                                            <div className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                                                {client.name.split(" ")[0]}
-                                            </div>
-                                            {client.name.split(" ").length > 1 && (
-                                                <div className="text-sm md:text-base font-medium text-muted-foreground">
-                                                    {client.name.split(" ").slice(1).join(" ")}
-                                                </div>
-                                            )}
-                                        </div>
 
-                                        {/* Description */}
-                                        <p className="text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors">
-                                            {client.description}
-                                        </p>
 
                                         {/* Hover indicator */}
                                         <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
