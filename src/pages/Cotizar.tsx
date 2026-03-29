@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, CheckCircle2, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
 
 type FormState = {
   name: string;
@@ -89,6 +90,8 @@ const Cotizar = () => {
     details: "",
   });
   const [isCompleted, setIsCompleted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   // Update question text dynamically based on the name if the current question is email
   const currentQuestion = { ...questions[step] };
@@ -96,13 +99,43 @@ const Cotizar = () => {
     currentQuestion.question = `¡Un gusto conocerte, ${formData.name.split(" ")[0]}! ¿A qué correo electrónico deberíamos escribirte?`;
   }
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (step < questions.length - 1) {
       setStep(step + 1);
     } else {
-      // Simulate form submission
-      setIsCompleted(true);
-      console.log("Form data submitted:", formData);
+      setIsSubmitting(true);
+      
+      // Honeypot check for bots
+      if (honeypot.trim() !== "") {
+        console.log("Bot verification blocked submission");
+        setIsCompleted(true);
+        setIsSubmitting(false);
+        return;
+      }
+
+      try {
+        const { error } = await supabase.from('leads').insert([
+          {
+            name: formData.name,
+            role: formData.role,
+            company: formData.company,
+            company_size: formData.companySize,
+            email: formData.email,
+            phone: formData.phone,
+            interest: formData.interest,
+            details: formData.details
+          }
+        ]);
+        
+        if (error) throw error;
+        
+        setIsCompleted(true);
+      } catch (err) {
+        console.error("Error submitting form:", err);
+        alert("Hubo un error al enviar tu solicitud. Por favor intenta de nuevo.");
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -128,9 +161,30 @@ const Cotizar = () => {
     const value = String(formData[currentKey] || "").trim();
     if (value === "") return false;
 
+    if (currentKey === "name") {
+      return value.length >= 3;
+    }
+
+    if (currentKey === "role" || currentKey === "company") {
+      return value.length >= 2;
+    }
+
+    if (currentKey === "phone") {
+      // Validate phone: must extract at least 7 to 15 digits
+      const digitsOnly = value.replace(/\D/g, '');
+      return digitsOnly.length >= 7 && digitsOnly.length <= 15;
+    }
+
     if (currentKey === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-      return emailRegex.test(value);
+      if (!emailRegex.test(value)) return false;
+      
+      // Block common temporary email domains
+      const tempDomains = ['yopmail.com', 'tempmail.com', 'mailinator.com', 'guerrillamail.com', '10minutemail.com', 'temp-mail.org'];
+      const domain = value.split('@')[1]?.toLowerCase();
+      if (tempDomains.includes(domain)) return false;
+      
+      return true;
     }
     
     return true;
@@ -161,6 +215,17 @@ const Cotizar = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col pt-8 px-4 md:px-8">
+      {/* Honeypot hidden input */}
+      <input 
+        type="text" 
+        name="b_website" 
+        tabIndex={-1} 
+        autoComplete="off" 
+        style={{ display: "none" }} 
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)} 
+      />
+
       {/* Header with Exit button */}
       <header className="flex justify-between items-center max-w-4xl mx-auto w-full mb-12">
         <Link to="/" className="flex items-center gap-2">
@@ -243,10 +308,19 @@ const Cotizar = () => {
               size="lg"
               className="glow-orange-sm text-lg px-8 py-6"
               onClick={handleNext}
-              disabled={!isCurrentStepValid() && currentQuestion.type !== "options"}
+              disabled={(!isCurrentStepValid() && currentQuestion.type !== "options") || isSubmitting}
             >
-              {step === questions.length - 1 ? "Enviar Solicitud" : "Continuar"}
-              <ArrowRight className="ml-2 w-5 h-5" />
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 w-5 h-5 animate-spin" />
+                  Enviando...
+                </>
+              ) : (
+                <>
+                  {step === questions.length - 1 ? "Enviar Solicitud" : "Continuar"}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </>
+              )}
             </Button>
             {step > 0 && (
               <Button
